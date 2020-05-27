@@ -1,10 +1,32 @@
-﻿
+﻿@inject HttpClient client
 <h2>Get random joke</h2>
 
 <button class="btn btn-primary" @onclick="GetRandomJoke">Get Random Joke</button>
 
-@code {
-    private void GetRandomJoke(){
+@if(j != null)
+{
+    <h3>Joke: @j.Id</h3>
+    <p>@j.Joke</p>
+    @if(j.Categories != null && j.Categories.Length > 0)
+    {
+        <h3>Joke Categories</h3>
+        <ul>
+            @foreach(string cat in j.Categories)
+            {
+                <li>@cat</li>
+            }
+        </ul>
+    }
+}
 
+@code {
+
+    SingleJoke j;
+
+    private async Task GetRandomJoke(){
+        ChuckNorrisResponse response =
+            await client.GetFromJsonAsync<ChuckNorrisBlazor.Shared.ChuckNorrisResponse>("https://api.icndb.com/jokes/random");
+
+        j = response.Value;
     }
 }
