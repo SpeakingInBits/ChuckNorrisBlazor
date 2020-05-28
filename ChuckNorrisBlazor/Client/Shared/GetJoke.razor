@@ -6,7 +6,7 @@
 @if(j != null)
 {
     <h3>Joke: @j.Id</h3>
-    <p>@j.Joke</p>
+    <p>@System.Net.WebUtility.HtmlDecode(j.Joke)</p>
     @if(j.Categories != null && j.Categories.Length > 0)
     {
         <h3>Joke Categories</h3>
