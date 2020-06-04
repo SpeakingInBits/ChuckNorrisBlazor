@@ -3,7 +3,7 @@
 ###############################################################################
 * text=auto
 
-publish/wwwroot/_framework/** binary
+publish/wwwroot/** binary
 
 ###############################################################################
 # Set default behavior for command prompt diff.
