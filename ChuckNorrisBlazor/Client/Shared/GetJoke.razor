@@ -34,7 +34,7 @@
         j = null;
 
         ChuckNorrisResponse response =
-            await client.GetFromJsonAsync<ChuckNorrisBlazor.Shared.ChuckNorrisResponse>("https://api.icndb.com/jokes/random");
+            await client.GetFromJsonAsync<ChuckNorrisBlazor.Shared.ChuckNorrisResponse>("http://api.icndb.com/jokes/random");
 
         isDisabled = false;
         jokeButtonText = "Get Random Joke";
